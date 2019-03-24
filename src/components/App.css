@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', monospace;
+}
+
+.form{
+    margin-top: 75px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 250px;
+}
