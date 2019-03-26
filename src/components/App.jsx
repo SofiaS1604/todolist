@@ -11,10 +11,21 @@ import Header from "./Header/Header";
 import Input from './Form/Input/Input';
 import Button from './Form/Button/Button';
 
-let value = '';
+let text_input = '';
 let list = [];
+let id = 0;
+let number = 0;
 
 
+function   List_children(props) {
+  return(
+    <div className="list_children">
+      <div className="list_text">{props.message}</div>
+      <div className="list_remove">Remove</div>
+    </div>
+     
+  )
+}
 
 
 class App extends React.Component{
@@ -22,7 +33,8 @@ class App extends React.Component{
     super(props);
 
     this.state = {
-      val: value
+      text_input: text_input,
+      id: 0
     };
 
     bindAll(this, [
@@ -40,26 +52,27 @@ class App extends React.Component{
 
   form_submit () {
     const {text_input} = this.state;
-    console.log('=_');
 
-    if (text_input === undefined || text_input.length === 0) {
+    if (text_input === undefined || text_input.length < 1) {
       return;
     }else{
-      list.push(text_input);
-      this.createList(); 
+      id += 1;  
+      list.push(this.state);
+      list[number].id = id;
+      number += 1;
+
     }
   }
 
-  createList(){
-    console.log('fdlgkjd');
-    for(let i = 0; i < list.length; i++){
-      return <Input/>
-    }
-  }
-  
   render() {  
     const {text_input} = this.state;
+
+    let list_text = [];
     
+    for(let i = 0; i < list.length; i++){
+      list_text.push(list[i]);
+    }
+
     return (
       <div className="todo_list">
           <Header></Header>
@@ -69,28 +82,13 @@ class App extends React.Component{
                 <Button onClick={this.form_submit}></Button>
               </div>
               <div className="list">
-                    {this.createList()}
+                {list_text.map((message) => <List_children message={message.text_input} key={message.id} />)}
               </div>
           </main>
       </div>
     );
   }
 }
-
-// function remove_list () {
-//   console.log('hi');
-// }
-
-// function List_add(){
-//   let list_length = list.length;
-//   document.querySelector('.list').innerHTML = ' ';
-//   for(let i = 0; i < list_length; i++){
-//     let list_children = document.createElement('div');
-//     list_children.className = 'list_children list_children-'+i;
-//     list_children.innerHTML = '<div className="list_children-text">'+list[i]+'</div><div onClick={remove_list('+i+')} className="list_children-remove">Remove</div>';
-//     document.querySelector('.list').appendChild(list_children);
-//   }
-// }
 
 
 
