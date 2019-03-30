@@ -13,7 +13,9 @@ class Input extends React.Component{
     constructor (props) {
         super(props);
     
-        this.state = {value: props.value};
+        this.state = {
+          value: props.value,
+        };
 
         this.onChangeDebounced = debounce(this.props.onChange);
         this.onChange = this.onChange.bind(this);
@@ -27,10 +29,10 @@ class Input extends React.Component{
       
       render () {
         const {value} = this.state;
-    
+        
         return (
           <div>
-            <input onChange={this.onChange} type="text" value={value} className="form_input-input" placeholder="Enter"/>
+            <input onChange={this.onChange} type="text" value={value} className="form_input-input" placeholder="Enter" />
           </div>
         );
       }
@@ -38,7 +40,7 @@ class Input extends React.Component{
     
     Input.propTypes = {
       onChange: PropTypes.func,
-      value: PropTypes.string
+      value: PropTypes.string,
     };
     
     Input.defaultProps = {

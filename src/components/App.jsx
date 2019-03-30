@@ -1,88 +1,99 @@
 import React, { Component } from 'react';
 import { combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-
 import {bindAll} from 'lodash';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import update from 'react-addons-update';
+
 
 import "./App.css";
 import Header from "./Header/Header";
 import Input from './Form/Input/Input';
 import Button from './Form/Button/Button';
+// import ButtonRemove from './Form/ButtonRemove/ButtonRemove';
 
 let text_input = '';
-let list = [];
-let id = 0;
-let number = 0;
-
-
-function   List_children(props) {
-  return(
-    <div className="list_children">
-      <div className="list_text">{props.message}</div>
-      <div className="list_remove">Remove</div>
-    </div>
-     
-  )
-}
-
 
 class App extends React.Component{
   constructor (props) {
     super(props);
 
     this.state = {
-      text_input: text_input,
-      id: 0
+      tasks: [],
+      text_input,
     };
 
     bindAll(this, [
       'input_value',
-      'form_submit'
+      'form_submit', 
+      'removeList',
     ]);
 
-
-    
   }
 
   input_value(text_input) {
     this.setState({text_input});
   }
 
+  removeList(e, id){
+    this.setState((state) => ({
+      tasks: state.tasks.filter(task => (task.id !== id))
+    }));
+  }
+
+  fulfilledList(e, id){
+    let updateElement = this.state.tasks.filter(task => (task.id === id))[0].status = true;
+    this.setState((state) => ({
+      tasks:[
+        ...state.tasks,
+      ]
+    }));
+  }
+
+
   form_submit () {
     const {text_input} = this.state;
-
-    if (text_input === undefined || text_input.length < 1) {
+    const tasks = this.state.tasks;
+  
+    if (!text_input || text_input.length === 0) {
       return;
-    }else{
-      id += 1;  
-      list.push(this.state);
-      list[number].id = id;
-      number += 1;
-
     }
+
+    let newId = tasks.length > 0 ? Math.max(...tasks.map((task) => task.id)) + 1 : 0
+    this.setState((state) => ({
+      tasks:[
+        ...state.tasks,
+        {
+          id: newId,
+          message: text_input,
+          status: false
+        }
+      ]
+    }));
+    console.log(tasks);
   }
 
   render() {  
     const {text_input} = this.state;
-
-    let list_text = [];
-    
-    for(let i = 0; i < list.length; i++){
-      list_text.push(list[i]);
-    }
+    const tasks = this.state.tasks;
 
     return (
       <div className="todo_list">
           <Header></Header>
           <main>
               <div className="form">
-                <Input onChange={this.input_value} value={text_input}/>
+                <Input onChange={this.input_value} value={this.state.text_input} ref={this.clearInput}/>
                 <Button onClick={this.form_submit}></Button>
               </div>
               <div className="list">
-                {list_text.map((message) => <List_children message={message.text_input} key={message.id} />)}
+                {tasks.map((task) => (
+                    <div className="list_children" key={task.id}>
+                      <div className="element_text">{task.message}</div>
+                      <div className="element_remove" onClick={(e) => this.removeList(e, task.id)}>{'Remove'}</div>
+                      <div className={task.status ? 'element_fulfilled-active' : 'element_fulfilled'} onClick={(e) => this.fulfilledList(e, task.id)}>&#10003;</div>
+                    </div>
+                ))}
               </div>
           </main>
       </div>
