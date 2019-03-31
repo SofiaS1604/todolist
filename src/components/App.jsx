@@ -43,7 +43,7 @@ class App extends React.Component{
   }
 
   fulfilledList(e, id){
-    let updateElement = this.state.tasks.filter(task => (task.id === id))[0].status = true;
+    this.state.tasks.filter(task => (task.id === id))[0].status = true;
     this.setState((state) => ({
       tasks:[
         ...state.tasks,
@@ -71,7 +71,6 @@ class App extends React.Component{
         }
       ]
     }));
-    console.log(tasks);
   }
 
   render() {  
