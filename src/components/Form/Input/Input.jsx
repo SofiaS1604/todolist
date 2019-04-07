@@ -20,13 +20,17 @@ class Input extends React.Component{
         this.onChangeDebounced = debounce(this.props.onChange);
         this.onChange = this.onChange.bind(this);
       }
+
+      static getDerivedStateFromProps(prevState, nextProps) {
+        nextProps.value = prevState.value
+      }
     
       onChange (e) {
         this.setState({value: e.target.value});
         this.onChangeDebounced(e.target.value);
+        
       }
     
-      
       render () {
         const {value} = this.state;
         

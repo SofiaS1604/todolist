@@ -11,7 +11,6 @@ import "./App.css";
 import Header from "./Header/Header";
 import Input from './Form/Input/Input';
 import Button from './Form/Button/Button';
-// import ButtonRemove from './Form/ButtonRemove/ButtonRemove';
 
 let text_input = '';
 
@@ -69,20 +68,23 @@ class App extends React.Component{
           message: text_input,
           status: false
         }
-      ]
-    }));
+      ],
+
+      text_input: ' ',
+    
+    })); 
   }
 
   render() {  
-    const {text_input} = this.state;
+    const text_input = this.state.text_input;
     const tasks = this.state.tasks;
-
+    
     return (
       <div className="todo_list">
           <Header></Header>
           <main>
               <div className="form">
-                <Input onChange={this.input_value} value={this.state.text_input} ref={this.clearInput}/>
+                <Input onChange={this.input_value} value={text_input} />
                 <Button onClick={this.form_submit}></Button>
               </div>
               <div className="list">
