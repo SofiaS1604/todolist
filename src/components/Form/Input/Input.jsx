@@ -7,7 +7,7 @@ import {debounce} from 'lodash';
 import {bindAll} from 'lodash';
 
 
-import './Input.css';
+import './Input.scss';
 
 class Input extends React.Component{
     constructor (props) {
@@ -22,13 +22,12 @@ class Input extends React.Component{
       }
 
       static getDerivedStateFromProps(prevState, nextProps) {
-        nextProps.value = prevState.value
+        nextProps.value = prevState.value;
       }
     
       onChange (e) {
         this.setState({value: e.target.value});
-        this.onChangeDebounced(e.target.value);
-        
+        this.onChangeDebounced(e.target.value);    
       }
     
       render () {

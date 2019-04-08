@@ -7,12 +7,12 @@ import {connect} from 'react-redux';
 import update from 'react-addons-update';
 
 
-import "./App.css";
+import "./App.scss";
 import Header from "./Header/Header";
 import Input from './Form/Input/Input';
 import Button from './Form/Button/Button';
 
-let text_input = '';
+let valueInput = '';
 
 class App extends React.Component{
   constructor (props) {
@@ -20,19 +20,19 @@ class App extends React.Component{
 
     this.state = {
       tasks: [],
-      text_input,
+      valueInput,
     };
 
     bindAll(this, [
-      'input_value',
-      'form_submit', 
+      'valueForm',
+      'submitForm', 
       'removeList',
     ]);
 
   }
 
-  input_value(text_input) {
-    this.setState({text_input});
+  valueForm(valueInput) {
+    this.setState({valueInput});
   }
 
   removeList(e, id){
@@ -51,11 +51,11 @@ class App extends React.Component{
   }
 
 
-  form_submit () {
-    const {text_input} = this.state;
+  submitForm () {
+    const {valueInput} = this.state;
     const tasks = this.state.tasks;
   
-    if (!text_input || text_input.length === 0) {
+    if (!valueInput || valueInput.length === 0) {
       return;
     }
 
@@ -65,18 +65,16 @@ class App extends React.Component{
         ...state.tasks,
         {
           id: newId,
-          message: text_input,
+          message: valueInput,
           status: false
         }
       ],
-
-      text_input: ' ',
-    
+      valueInput: ' ',
     })); 
   }
 
   render() {  
-    const text_input = this.state.text_input;
+    const valueInput = this.state.valueInput;
     const tasks = this.state.tasks;
     
     return (
@@ -84,8 +82,8 @@ class App extends React.Component{
           <Header></Header>
           <main>
               <div className="form">
-                <Input onChange={this.input_value} value={text_input} />
-                <Button onClick={this.form_submit}></Button>
+                <Input onChange={this.valueForm} value={valueInput} />
+                <Button onClick={this.submitForm}></Button>
               </div>
               <div className="list">
                 {tasks.map((task) => (

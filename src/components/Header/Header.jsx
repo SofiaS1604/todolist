@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import "./Header.css";
+import "./Header.scss";
 
 class Header extends React.Component{
     render(){
