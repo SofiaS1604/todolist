@@ -31,7 +31,7 @@ module.exports = {
                       loader: `css-loader`
                     },
                     {
-                      loader: `scss-loader`
+                      loader: `sass-loader`
                     }
                 ]  
             }

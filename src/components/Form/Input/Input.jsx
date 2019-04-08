@@ -7,7 +7,7 @@ import {debounce} from 'lodash';
 import {bindAll} from 'lodash';
 
 
-import './Input.scss';
+import './Input.sass';
 
 class Input extends React.Component{
     constructor (props) {

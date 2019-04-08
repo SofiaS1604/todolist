@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import update from 'react-addons-update';
 
 
-import "./App.scss";
+import "./App.sass";
 import Header from "./Header/Header";
 import Input from './Form/Input/Input';
 import Button from './Form/Button/Button';
