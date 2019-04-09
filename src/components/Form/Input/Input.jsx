@@ -18,11 +18,19 @@ class Input extends React.Component{
         };
 
         this.onChangeDebounced = debounce(this.props.onChange);
+
         this.onChange = this.onChange.bind(this);
+        this.onKeyPress = this.onKeyPress.bind(this);
       }
 
       static getDerivedStateFromProps(prevState, nextProps) {
         nextProps.value = prevState.value;
+      }
+
+      onKeyPress(e){
+          if(e.key === 'Enter'){
+              this.props.onEnterPress(this.state.value);
+          }
       }
     
       onChange (e) {
@@ -35,7 +43,7 @@ class Input extends React.Component{
         
         return (
           <div>
-            <input onChange={this.onChange} type="text" value={value} className="form_input-input" placeholder="Enter" />
+            <input onChange={this.onChange} onKeyPress={this.onKeyPress} type="text" value={value} className="form_input-input" placeholder="Enter" />
           </div>
         );
       }
@@ -44,10 +52,12 @@ class Input extends React.Component{
     Input.propTypes = {
       onChange: PropTypes.func,
       value: PropTypes.string,
+      onEnterPress: PropTypes.func
     };
     
     Input.defaultProps = {
       onChange: () => null,
+      onEnterPress: () => null,
       value: ''
     };
     

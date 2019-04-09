@@ -14,12 +14,10 @@
 .list
     display: flex
     flex-direction: column
-    margin-left: 20px
-    margin-right: 20px
+    margin: 0 20px 20px 20px
     max-width: 98vw
     background: rgba(150, 150, 240, 0.3)
     padding:  0 10px
-    margin-bottom: 20px
     border-radius: 5px
     &_children
         display: flex
@@ -35,16 +33,12 @@
 
 .element
     &_remove
-        display: flex
         flex: 1
         justify-content: center
         color: #FF0C0C
-        transition-duration: 0.2s
         max-width: 100px
-        cursor: pointer
         padding: 5px 0px
-        margin-right: 10px
-
+       
         &:hover
             border-radius: 10px
             background: #FF0C0C
@@ -54,12 +48,9 @@
         width: 25px
         height: 25px
         font-size: 23px
-        text-align: center
+        justify-content: center
         line-height: 25px
-        margin-right: 10px
-        cursor: pointer
         color: green
-        transition-duration: 0.2s
         border: 2px solid green
 
         &:hover
@@ -79,8 +70,13 @@
             border: 2px solid green
 
     &_text
-        display: flex
-        margin-left: 15px
         flex: 5
         flex-wrap: wrap
         
+.task
+    display: flex
+    margin: 0 10px
+    cursor: pointer
+    transition-duration: 0.2s
+            
+

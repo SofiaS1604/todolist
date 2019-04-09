@@ -27,6 +27,7 @@ class App extends React.Component{
       'valueForm',
       'submitForm', 
       'removeList',
+      'onEnter'
     ]);
 
   }
@@ -73,6 +74,28 @@ class App extends React.Component{
     })); 
   }
 
+  onEnter(valueInput){
+    const tasks = this.state.tasks;
+  
+    if (!valueInput || valueInput.length === 0) {
+      return;
+    }
+
+    let newId = tasks.length > 0 ? Math.max(...tasks.map((task) => task.id)) + 1 : 0
+    this.setState((state) => ({
+      tasks:[
+        ...state.tasks,
+        {
+          id: newId,
+          message: valueInput,
+          status: false
+        }
+      ],
+      valueInput: ' ',
+    })); 
+  }
+  
+
   render() {  
     const valueInput = this.state.valueInput;
     const tasks = this.state.tasks;
@@ -82,15 +105,15 @@ class App extends React.Component{
           <Header></Header>
           <main>
               <div className="form">
-                <Input onChange={this.valueForm} value={valueInput} />
+                <Input onChange={this.valueForm} value={valueInput}  onEnterPress={this.onEnter} />
                 <Button onClick={this.submitForm}></Button>
               </div>
               <div className="list">
                 {tasks.map((task) => (
                     <div className="list_children" key={task.id}>
-                      <div className="element_text">{task.message}</div>
-                      <div className="element_remove" onClick={(e) => this.removeList(e, task.id)}>{'Remove'}</div>
-                      <div className={task.status ? 'element_fulfilled-active' : 'element_fulfilled'} onClick={(e) => this.fulfilledList(e, task.id)}>&#10003;</div>
+                      <div className="task element_text">{task.message}</div>
+                      <div className="task element_remove" onClick={(e) => this.removeList(e, task.id)}>{'Remove'}</div>
+                      <div className={task.status ? 'task element_fulfilled-active' : 'task element_fulfilled'} onClick={(e) => this.fulfilledList(e, task.id)}>&#10003;</div>
                     </div>
                 ))}
               </div>
