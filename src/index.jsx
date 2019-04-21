@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App.jsx";
+import App from "./view/App";
 
-import "./components/App.sass";
+import "./view/App.sass";
 
 
 ReactDOM.render(<App />, document.getElementById("root"));
