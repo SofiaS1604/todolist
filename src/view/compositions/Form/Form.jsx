@@ -12,7 +12,6 @@ import InputButton from '../../components/InputButton/InputButton';
 
 let valueInput = '';
 
-
 class Form extends React.Component{
     constructor (props) {
         super(props);
@@ -27,7 +26,6 @@ class Form extends React.Component{
             'submitForm',
             'onEnter'
         ]);
-
     }
 
     valueForm(valueInput) {
@@ -78,12 +76,12 @@ class Form extends React.Component{
             ],
             valueInput: '',
         }));
+
     }
 
 
     render() {
         const valueInput = this.state.valueInput;
-
         return(
             <div className="form">
                 <Input onChange={this.valueForm} value={valueInput}  onEnterPress={this.onEnter} />
