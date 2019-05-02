@@ -17,7 +17,7 @@
     "babel-loader": "^8.0.5",
     "css-loader": "^1.0.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.12.0",
     "react-style-loader": "^2.3.0",
     "redux-devtools": "^2.1.5",
     "sass-loader": "^7.1.0",
