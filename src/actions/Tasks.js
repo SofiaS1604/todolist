@@ -1,9 +1,9 @@
-const add = (task) = () =>{
+const add = (task) =>{
 
 };
 
 
-const Tasks () =  {
+const Tasks =  {
     actions: {
         add
     }
