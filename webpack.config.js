@@ -19,7 +19,7 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: "babel-loader",
-                options: { presets: ["@babel/env"] }
+                options: { presets: ["@babel/env",  "@babel/react"] }
             },
             {
                 test: /\.(scss|sass)$/,
@@ -37,7 +37,12 @@ module.exports = {
             }
         ]
     },
-    resolve: { extensions: ["*", ".js", ".jsx", ".json"] },
+    resolve: {
+        extensions: ["*", ".js", ".jsx", ".json", ".sass"],
+        alias: {
+            actions: path.resolve(__dirname, './src/actions'),
+        }
+    },
     output: {
         path: path.resolve(__dirname, "dist/"),
         publicPath: "/dist/",
@@ -52,4 +57,5 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
     ]
+
 };
