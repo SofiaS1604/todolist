@@ -40,7 +40,7 @@ module.exports = {
     resolve: {
         extensions: ["*", ".js", ".jsx", ".json", ".sass"],
         alias: {
-            actions: path.resolve(__dirname, './src/actions'),
+            actions: path.resolve(__dirname, './src/actions')
         }
     },
     output: {
