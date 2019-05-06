@@ -6,8 +6,6 @@ import {store} from "./store"
 import {Provider} from "react-redux";
 
 
-// ReactDOM.render( <App />, document.getElementById("root"));
-
 const renderApp = (AppComponent, storeObj) => {
     ReactDOM.render(
         <AppContainer>
@@ -24,10 +22,7 @@ store.then((storeObj) => {
 
     if (module.hot) {
         module.hot.accept('view/App', () => {
-            /* eslint-disable global-require */
             const NextApp = require('view/App').default;
-            /* eslint-disable global-require */
-
             renderApp(NextApp, storeObj);
         });
     }
