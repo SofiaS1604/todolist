@@ -41,7 +41,8 @@ module.exports = {
         extensions: ["*", ".js", ".jsx", ".json", ".sass"],
         alias: {
             actions: path.resolve(__dirname, './src/actions'),
-            view: path.resolve(__dirname, './src/view')
+            view: path.resolve(__dirname, './src/view'),
+            reducers: path.resolve(__dirname, './src/reducers'),
         }
     },
     output: {
