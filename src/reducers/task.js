@@ -6,7 +6,7 @@ const getInitialState = () => ({
 });
 
 const tasksReducer = (state = getInitialState(), action) => {
-    console.log(state, action)
+    // console.log(state, action)
     switch(action.type) {
         case Tasks:
             return {
@@ -17,5 +17,7 @@ const tasksReducer = (state = getInitialState(), action) => {
             return state;
     }
 };
+
+
 
 export default tasksReducer;

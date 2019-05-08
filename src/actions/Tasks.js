@@ -1,5 +1,5 @@
 const add = (task) => (dispatch, getState) =>{
-    // console.log(task)
+    console.log(task)
 };
 
 
