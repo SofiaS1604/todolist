@@ -1,28 +1,17 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import {bindAll, debounce} from 'lodash';
-
-import "./Task.sass";
 import RemoveButton from "../../components/RemoveButton/RemoveButton";
 import СheckmarkButton from "../../components/СheckmarkButton/СheckmarkButton";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+import "./Task.sass";
 
 
-
-import {Tasks} from 'actions';
-import {connect} from "react-redux/src";
-import {ThunkAction as getState} from "redux-thunk";
-
-
-class Task extends React.Component{
+class Task extends React.Component {
     constructor (props){
         super(props);
-
     }
 
-
     render () {
-        console.log(Task.propTypes);
-
         return (
             <div className="list_children">
                 <div className="task task_text"></div>

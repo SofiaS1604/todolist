@@ -3,7 +3,7 @@ import  React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindAll} from  'lodash';
-import {Tasks}  from 'actions';
+import {tasksAdd}  from 'actions';
 
 import './Form.sass';
 import Input from '../../components/Input/Input';
@@ -62,7 +62,7 @@ class Form extends Component{
     }
 
     onEnter(valueInput){
-        const tasks = this.state.tasks;
+        const {tasks} = this.state;
 
         if (!valueInput || valueInput.length === 0) {
             return;
@@ -80,7 +80,7 @@ class Form extends Component{
         //     ],
         //     valueInput: '',
         // }));
-        this.props.addTask({
+        this.props.tasksAdd({
             valueInput,
             status: 'false'
         });
@@ -101,11 +101,11 @@ class Form extends Component{
 }
 
 Form.propsTypes = {
-   addTask: PropTypes.func.isRequired,
+   tasksAdd: PropTypes.func.isRequired,
 };
 
 const stateProps = (state) => ({});
 
 export default connect(stateProps,{
-    addTask: Tasks.actions.add,
+    tasksAdd,
 })(Form);
