@@ -1,3 +1,1 @@
-import Tasks from './Tasks';
-
-export {Tasks};
+export * from './tasks';

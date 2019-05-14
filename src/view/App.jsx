@@ -1,46 +1,45 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import {bindAll} from 'lodash';
-
-import "./App.sass";
 import Header from "./components/Header/Header";
 import Form from  "./compositions/Form/Form";
 import Task from  './compositions/Task/Task';
 import PropTypes from "prop-types";
-import {connect} from "react-redux/src";
-import {Tasks} from "actions/index";
+import {connect} from "react-redux";
+import {tasksAdd} from "actions";
+import "./App.sass";
 
 
+class App extends React.Component {
+  constructor(props){
+    super(props);
+  }
 
-class App extends React.Component{
-    constructor(props){
-        super(props);
-        this.props.addTasks();
-    }
   render() {
     return (
       <div className="todo_list">
-          <Header></Header>
-          <main>
-              <Form/>
-              <div className="list">
-                <Task/>
-              </div>
-          </main>
+        <Header />
+        <main>
+          <Form />
+          <div className="list">
+            <Task />
+          </div>
+        </main>
       </div>
     );
   }
 }
 
-Task.propTypes = {
-    addTasks: PropTypes.func.isRequired,
-    tasks: PropTypes.arrayOf(PropTypes.shape())
+App.propTypes = {
+  tasks: PropTypes.arrayOf(
+    PropTypes.shape({})
+  ).isRequired,
+  tasksAdd: PropTypes.func.isRequired
 };
 
-
-const stareProps = (state) => ({
-    tasks: state.tasks.tasks
+const mapStateToProps = (state) => ({
+  tasks: state.tasks.list
 });
 
-export default connect(stareProps, {
-    addTasks : Tasks.actions.add,
-}(App));
+export default connect(mapStateToProps, {
+  tasksAdd
+})(App);

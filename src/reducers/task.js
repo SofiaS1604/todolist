@@ -1,6 +1,4 @@
-import {Tasks} from 'actions';
-
-const getInitialState = () => ({tasks: [] });
+const getInitialState = () => ({list: [] });
 
 const tasksReducer = (state = getInitialState(), action) => {
     // console.log(state, action)
@@ -8,13 +6,11 @@ const tasksReducer = (state = getInitialState(), action) => {
         case 'TASKS_CHANGE':
             return {
                 ...state,
-                tasks: action.tasks
+                list: action.tasks
             };
         default:
             return state;
     }
 };
-
-
 
 export default tasksReducer;
