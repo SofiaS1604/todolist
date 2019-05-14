@@ -5,10 +5,17 @@ import "./App.sass";
 import Header from "./components/Header/Header";
 import Form from  "./compositions/Form/Form";
 import Task from  './compositions/Task/Task';
+import PropTypes from "prop-types";
+import {connect} from "react-redux/src";
+import {Tasks} from "actions/index";
 
 
 
 class App extends React.Component{
+    constructor(props){
+        super(props);
+        this.props.addTasks();
+    }
   render() {
     return (
       <div className="todo_list">
@@ -24,4 +31,16 @@ class App extends React.Component{
   }
 }
 
-export default App;
+Task.propTypes = {
+    addTasks: PropTypes.func.isRequired,
+    tasks: PropTypes.arrayOf(PropTypes.shape())
+};
+
+
+const stareProps = (state) => ({
+    tasks: state.tasks.tasks
+});
+
+export default connect(stareProps, {
+    addTasks : Tasks.actions.add,
+}(App));

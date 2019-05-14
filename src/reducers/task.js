@@ -1,17 +1,14 @@
 import {Tasks} from 'actions';
 
-const getInitialState = () => ({
-    byId: {},
-    ids: []
-});
+const getInitialState = () => ({tasks: [] });
 
 const tasksReducer = (state = getInitialState(), action) => {
     // console.log(state, action)
     switch(action.type) {
-        case Tasks:
+        case 'TASKS_CHANGE':
             return {
-                byId: action.tasksById,
-                ids: action.ids
+                ...state,
+                tasks: action.tasks
             };
         default:
             return state;

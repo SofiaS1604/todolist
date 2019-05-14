@@ -7,8 +7,22 @@ import СheckmarkButton from "../../components/СheckmarkButton/СheckmarkButton
 import PropTypes from "prop-types";
 
 
+
+import {Tasks} from 'actions';
+import {connect} from "react-redux/src";
+import {ThunkAction as getState} from "redux-thunk";
+
+
 class Task extends React.Component{
+    constructor (props){
+        super(props);
+
+    }
+
+
     render () {
+        console.log(Task.propTypes);
+
         return (
             <div className="list_children">
                 <div className="task task_text"></div>
