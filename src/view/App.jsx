@@ -12,15 +12,8 @@ import "./App.sass";
 class App extends React.Component {
     constructor(props) {
         super(props);
-        bindAll(this, [
-            'onTitle'
-        ])
     }
 
-    onTitle() {
-        this.props.onTitle(this.props.tasks.valueInput);
-        console.log(this.props.onTitle);
-    }
 
     render() {
         // console.log( this.props.tasks ) ;
@@ -36,7 +29,7 @@ class App extends React.Component {
                     <div className="list">
                         {tasks.map((task) => {
                             return (
-                                <Task key={task.id} onTitle={task.valueInput}/>
+                                <Task key={task.id} onTitle={task.valueInput} onCheckmarkClick={task}/>
                             )
                         })}
                     </div>
@@ -51,7 +44,6 @@ App.propTypes = {
         PropTypes.shape({})
     ).isRequired,
     tasksAdd: PropTypes.func.isRequired,
-
 };
 
 const mapStateToProps = (state) => ({

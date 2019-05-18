@@ -47,7 +47,7 @@ class Form extends Component {
         this.props.tasksAdd({
             id,
             valueInput,
-            status: 'false'
+            status: false
         });
     }
 
@@ -65,7 +65,7 @@ class Form extends Component {
         this.props.tasksAdd({
             id,
             valueInput,
-            status: 'false'
+            status: false
         });
     }
 

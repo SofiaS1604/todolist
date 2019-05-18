@@ -1,12 +1,19 @@
 import React, {Component} from 'react';
 import './СheckmarkButton.sass';
+import PropTypes from "prop-types";
 
-class СheckmarkButton extends React.Component {
-    render() {
-        return (
-            <div className={'task element_fulfilled'}>&#10003;</div>
-        );
-    }
-}
+
+const СheckmarkButton = ({onClick}) => (
+    <div className="task element_fulfilled" onClick={onClick}>&#10003;</div>
+);
+
+СheckmarkButton.propTypes = {
+    onClick: PropTypes.func
+};
+
+СheckmarkButton.defaultProps = {
+    onClick: () => null
+};
+
 
 export default СheckmarkButton;

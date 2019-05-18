@@ -1,4 +1,4 @@
-import React, {Component} from 'react';;
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import "./InputButton.sass";
 
@@ -13,6 +13,5 @@ InputButton.propTypes = {
 InputButton.defaultProps = {
     onClick: () => null
 };
-
 
 export default InputButton;
