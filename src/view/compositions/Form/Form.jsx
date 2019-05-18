@@ -34,7 +34,6 @@ class Form extends Component {
 
     submitForm() {
         const {valueInput} = this.state;
-        const tasks = this.state.tasks;
         let id = this.state.newId + 1;
 
         if (!valueInput || valueInput.length === 0) {
@@ -53,8 +52,6 @@ class Form extends Component {
     }
 
     onEnter(valueInput) {
-        const {tasks} = this.state;
-
         if (!valueInput || valueInput.length === 0) {
             return;
         }
