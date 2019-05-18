@@ -1,10 +1,6 @@
-// let tasks = [];
-
-export const tasksAdd = (task) => (dispatch, getState) =>{
-    // tasks.push(task);
+export const tasksAdd = (task) => (dispatch, getState) => {
     dispatch({
         type: 'TASKS_CHANGE',
-        tasks: [...getState().tasks.tasks, task]
+        tasks: [...getState().tasks.list, task]
     });
-    console.log(task)
 };

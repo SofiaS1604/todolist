@@ -1,12 +1,11 @@
-const getInitialState = () => ({list: [] });
+const getInitialState = () => ({list: []});
 
 const tasksReducer = (state = getInitialState(), action) => {
-    // console.log(state, action)
-    switch(action.type) {
+    switch (action.type) {
         case 'TASKS_CHANGE':
             return {
                 ...state,
-                list: action.tasks
+                list: action.tasks,
             };
         default:
             return state;

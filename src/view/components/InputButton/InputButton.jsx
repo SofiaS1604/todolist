@@ -1,20 +1,17 @@
-import React, { Component } from 'react';
-import { combineReducers } from 'redux';
-import { Provider } from 'react-redux';
+import React, {Component} from 'react';;
 import PropTypes from 'prop-types';
-
 import "./InputButton.sass";
 
-const InputButton = ({onClick}) =>(
-  <button className="form_button" onClick={onClick}>Add</button>
+const InputButton = ({onClick}) => (
+    <button className="form_button" onClick={onClick}>Add</button>
 );
 
 InputButton.propTypes = {
-  onClick: PropTypes.func
+    onClick: PropTypes.func
 };
 
 InputButton.defaultProps = {
-  onClick: () => null
+    onClick: () => null
 };
 
 

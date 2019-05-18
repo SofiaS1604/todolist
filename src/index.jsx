@@ -10,7 +10,7 @@ const renderApp = (AppComponent, storeObj) => {
     ReactDOM.render(
         <AppContainer>
             <Provider store={storeObj}>
-                <AppComponent />
+                <AppComponent/>
             </Provider>
         </AppContainer>,
         document.getElementById('root')

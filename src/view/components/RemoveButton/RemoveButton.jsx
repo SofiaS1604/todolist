@@ -1,20 +1,17 @@
-import React, { Component } from 'react';
-import { combineReducers } from 'redux';
-import { Provider } from 'react-redux';
-
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {debounce} from 'lodash';
-import {bindAll} from 'lodash';
-
-
 import './RemoveButton.sass';
 
-class RemoveButton extends React.Component{
-    render () {
-        return (
-            <div className="task element_remove">{'Remove'}</div>
-        );
-    }
-}
+const RemoveButton = ({onClick}) => (
+    <div className="task element_remove" onClick={onClick}>{'Remove'}</div>
+);
+
+RemoveButton.propTypes = {
+    onClick: PropTypes.func
+};
+
+RemoveButton.defaultProps = {
+    onClick: () => null
+};
 
 export default RemoveButton;

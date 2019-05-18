@@ -1,18 +1,10 @@
-import React, { Component } from 'react';
-import { combineReducers } from 'redux';
-import { Provider } from 'react-redux';
-
-import PropTypes from 'prop-types';
-import {debounce} from 'lodash';
-import {bindAll} from 'lodash';
-
-
+import React, {Component} from 'react';
 import './СheckmarkButton.sass';
 
-class СheckmarkButton extends React.Component{
-    render () {
+class СheckmarkButton extends React.Component {
+    render() {
         return (
-            <div className={'task element_fulfilled'} >&#10003;</div>
+            <div className={'task element_fulfilled'}>&#10003;</div>
         );
     }
 }
