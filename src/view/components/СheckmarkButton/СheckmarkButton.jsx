@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 
 const СheckmarkButton = ({onClick}) => (
-    <div className="task element_fulfilled" onClick={onClick}>&#10003;</div>
+    <div className="checkMark" onClick={onClick}>&#10003;</div>
 );
 
 СheckmarkButton.propTypes = {

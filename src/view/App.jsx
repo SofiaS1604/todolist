@@ -29,7 +29,7 @@ class App extends React.Component {
                     <div className="list">
                         {tasks.map((task) => {
                             return (
-                                <Task key={task.id} onTitle={task.valueInput} onCheckmarkClick={task}/>
+                                <Task key={task.id} onTitle={task.valueInput} onCheckmarkClick={task.status} onRemoveClick={task.id}/>
                             )
                         })}
                     </div>
