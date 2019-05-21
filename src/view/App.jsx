@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {bindAll} from 'lodash';
-import Header from "./components/Header/Header";
-import Form from "./compositions/Form/Form";
-import Task from './compositions/Task/Task';
+import Header from "./templates/Header/Header";
+import Form from "./widgets/Form/Form";
+import Task from './templates/Task/Task';
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {tasksAdd} from "actions";
@@ -14,12 +14,10 @@ class App extends React.Component {
         super(props);
     }
 
-
     render() {
-        // console.log( this.props.tasks ) ;
+        console.log( this.props.tasks ) ;
         // const valueInput = this.state.valueInput;
         const tasks = this.props.tasks;
-
 
         return (
             <div className="todo_list">
