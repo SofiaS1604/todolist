@@ -7,3 +7,50 @@
   &_text
       flex: 5
       flex-wrap: wrap
+
+
+.element
+  &_remove
+    flex: 1
+    justify-content: center
+    color: #FF0C0C
+    max-width: 100px
+    padding: 5px 0
+    border: 1px solid red
+    border-radius: 5px
+    display: flex
+    transition-duration: 0.5s
+    cursor: pointer
+
+    &:hover
+      border-radius: 10px
+      background: #FF0C0C
+      color: white
+
+
+
+.element_fulfilled
+  width: 25px
+  height: 25px
+  font-size: 23px
+  justify-content: center
+  line-height: 25px
+  color: green
+  border: 2px solid green
+
+  &:hover
+    background: green
+    color: white
+
+  &-active
+    background: green
+    color: white
+    width: 25px
+    height: 25px
+    font-size: 23px
+    justify-content: center
+    line-height: 25px
+    margin-right: 10px
+    cursor: pointer
+    border: 2px solid green
+

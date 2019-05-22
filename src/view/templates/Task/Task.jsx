@@ -1,9 +1,10 @@
 import * as React from 'react';
-import RemoveButton from "../../components/RemoveButton/RemoveButton";
+// import RemoveButton from "../../components/RemoveButton/RemoveButton";
 import {bindAll} from 'lodash';
-import СheckmarkButton from "../../components/СheckmarkButton/СheckmarkButton";
+// import СheckmarkButton from "../../components/СheckmarkButton/СheckmarkButton";
 import PropTypes from 'prop-types';
 import "./Task.sass";
+import Button from "../../components/Button/Button.jsx";
 
 
 class Task extends React.Component {
@@ -41,9 +42,11 @@ class Task extends React.Component {
         return (
             <div className="list_children">
                 <div className="task task_text">{value}</div>
-                <RemoveButton onClick={this.onRemoveClickTask}/>
+                <div className={'element_remove'}>
+                    <Button onClick={this.onRemoveClickTask} text={'Remove'}/>
+                </div>
                 <div className={status ? 'task element_fulfilled-active' : 'task element_fulfilled'}>
-                    <СheckmarkButton onClick={this.onCheckmarkClickTask} />
+                    <Button onClick={this.onCheckmarkClickTask} text={'✓'}/>
                 </div>
             </div>
         );

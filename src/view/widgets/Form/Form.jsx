@@ -6,7 +6,7 @@ import {tasksAdd} from 'actions';
 
 import './Form.sass';
 import Input from '../../components/Input/Input';
-import InputButton from '../../components/InputButton/InputButton';
+import Button from  '../../components/Button/Button';
 
 let valueInput = '';
 let newId = 0;
@@ -74,7 +74,9 @@ class Form extends Component {
         return (
             <div className="form">
                 <Input onChange={this.valueForm} value={valueInput} onEnterPress={this.onEnter}/>
-                <InputButton onClick={this.submitForm}/>
+                <button className="form_button">
+                    <Button onClick={this.submitForm}  text={'Add'}/>
+                </button>
             </div>
         )
     }

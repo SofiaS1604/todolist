@@ -3,6 +3,7 @@ import {bindAll} from 'lodash';
 import Header from "./templates/Header/Header";
 import Form from "./widgets/Form/Form";
 import Task from './templates/Task/Task';
+import Tasks from './widgets/Tasks/Tasks';
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {tasksAdd} from "actions";
@@ -24,13 +25,7 @@ class App extends React.Component {
                 <Header/>
                 <main>
                     <Form/>
-                    <div className="list">
-                        {tasks.map((task) => {
-                            return (
-                                <Task key={task.id} onTitle={task.valueInput} onCheckmarkClick={task.status} onRemoveClick={task.id}/>
-                            )
-                        })}
-                    </div>
+                    <Tasks/>
                 </main>
             </div>
         );
