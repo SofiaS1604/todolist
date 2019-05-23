@@ -11,7 +11,7 @@ import Button from  '../../components/Button/Button';
 let valueInput = '';
 let newId = 0;
 
-class Form extends Component {
+class Form extends React.Component {
     constructor(props) {
         super(props);
 

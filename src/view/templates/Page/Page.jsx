@@ -6,13 +6,15 @@ import Header from "../Header/Header.jsx"
 
 import "./Page.sass";
 
+const Page = ({children}) => (
+    <div>
+        <Header/>
+        {children}
+    </div>
+);
 
-class Page extends React.Component {
-    render(){
-        return(
-            <Header/>
-        )
-    }
-}
+Page.propTypes = {
+    children: PropTypes.any.isRequired
+};
 
 export default Page;

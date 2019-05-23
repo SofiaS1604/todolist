@@ -1,7 +1,5 @@
 import * as React from 'react';
-// import RemoveButton from "../../components/RemoveButton/RemoveButton";
 import {bindAll} from 'lodash';
-// import СheckmarkButton from "../../components/СheckmarkButton/СheckmarkButton";
 import PropTypes from 'prop-types';
 import "./Task.sass";
 import Button from "../../components/Button/Button.jsx";
