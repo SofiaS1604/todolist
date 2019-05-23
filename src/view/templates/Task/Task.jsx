@@ -20,7 +20,7 @@ class Task extends React.Component {
         ])
     }
 
-    onCheckmarkClickTask(){
+    onCheckmarkClickTask() {
         this.state.status = true;
 
         this.setState({
@@ -28,11 +28,10 @@ class Task extends React.Component {
         });
     }
 
-    onRemoveClickTask(){
+    onRemoveClickTask() {
         // console.log(this.state);
     }
-
-
+    
     render() {
         // console.log(this.state);
         const value = this.state.value;

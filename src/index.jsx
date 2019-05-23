@@ -5,7 +5,6 @@ import {AppContainer} from "react-hot-loader";
 import {store} from "./store"
 import {Provider} from "react-redux";
 
-
 const renderApp = (AppComponent, storeObj) => {
     ReactDOM.render(
         <AppContainer>
