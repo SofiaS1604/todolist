@@ -2,7 +2,7 @@ import * as React from 'react';
 import {bindAll} from 'lodash';
 import PropTypes from 'prop-types';
 import "./Task.sass";
-import Button from "../../components/Button/Button.jsx";
+import Button from "../../atoms/Button/Button.jsx";
 
 
 class Task extends React.Component {
@@ -31,7 +31,7 @@ class Task extends React.Component {
     onRemoveClickTask() {
         // console.log(this.state);
     }
-    
+
     render() {
         // console.log(this.state);
         const value = this.state.value;

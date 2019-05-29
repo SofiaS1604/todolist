@@ -5,8 +5,8 @@ import {bindAll} from 'lodash';
 import {tasksAdd} from 'actions';
 
 import './Form.sass';
-import Input from '../../components/Input/Input';
-import Button from  '../../components/Button/Button';
+import Input from '../../atoms/Input/Input';
+import Button from  '../../atoms/Button/Button';
 
 let valueInput = '';
 let newId = 0;
