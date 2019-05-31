@@ -5,7 +5,7 @@ import {tasksAdd} from "actions";
 
 import Main from "./pages/Main/Main.jsx";
 import Page from "./templates/Page/Page.jsx";
-import "./App.sass";
+
 
 class App extends React.Component {
     constructor(props) {

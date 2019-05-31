@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import "./Button.sass";
 
 const InputButton = ({text, onClick}) => (
     <div onClick={onClick}>{text}</div>
