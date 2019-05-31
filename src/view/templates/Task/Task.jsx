@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {bindAll} from 'lodash';
 import PropTypes from 'prop-types';
-import "./Task.sass";
+import styles from "./Task.sass";
 import Button from "../../atoms/Button/Button.jsx";
 
 
@@ -37,8 +37,8 @@ class Task extends React.Component {
         const value = this.state.value;
         const status = this.state.status;
         return (
-            <div className="list_children">
-                <div className="task task_text">{value}</div>
+            <div className={"list_children"}>
+                <div className={styles.task_text}>{value}</div>
                 <div className={'element_remove'}>
                     <Button onClick={this.onRemoveClickTask} text={'Remove'}/>
                 </div>
@@ -52,8 +52,8 @@ class Task extends React.Component {
 
 Task.propTypes = {
     value: PropTypes.string.isRequired,
-    onCheckmarkClickTask: PropTypes.func,
-    onRemoveClickTask: PropTypes.func
+    onCheckmarkClickTask: PropTypes.func.isRequired,
+    onRemoveClickTask: PropTypes.func.isRequired
 };
 
 Task.defaultProps = {

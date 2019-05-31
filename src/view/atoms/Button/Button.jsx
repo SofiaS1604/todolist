@@ -6,7 +6,7 @@ const InputButton = ({text, onClick}) => (
 );
 
 InputButton.propTypes = {
-    onClick: PropTypes.func,
+    onClick: PropTypes.func.isRequired,
     text: PropTypes.string.isRequired
 };
 
