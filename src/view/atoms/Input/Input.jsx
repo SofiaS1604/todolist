@@ -34,7 +34,7 @@ class Input extends React.Component {
         return (
             <div>
                 <input onChange={this.onChange} onKeyPress={this.onKeyPress} type="text" value={value}
-                       className="form_input-input" placeholder="Enter"/>
+                       className={styles.form_input} placeholder="Enter"/>
             </div>
         );
     }

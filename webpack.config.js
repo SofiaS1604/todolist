@@ -35,7 +35,7 @@ module.exports = {
                     options: {
                         url: true,
                         modules: true,
-                        localIdentName: '[local]___[hash:base64:5]'
+                        localIdentName: '[local]'
                     }
                 }, {
                     loader: 'sass-loader',
@@ -68,6 +68,10 @@ module.exports = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'assets/css/[name].css',
+            chunkFilename: 'assets/css/[id].css',
+        })
     ]
 
 };
