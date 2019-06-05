@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindAll} from 'lodash';
 import {tasksAdd} from 'actions';
+import {debounce} from 'lodash';
 
-import './Form.sass';
+
+import styles from './Form.sass';
 import Input from '../../atoms/Input/Input';
 import Button from  '../../atoms/Button/Button';
 
@@ -26,6 +28,9 @@ class Form extends React.Component {
             'submitForm',
             'onEnter'
         ]);
+
+
+
     }
 
     valueForm(valueInput) {

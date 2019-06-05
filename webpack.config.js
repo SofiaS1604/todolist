@@ -24,25 +24,26 @@ module.exports = {
             },
             {
                 test: /\.(scss|sass)$/,
-                use:
-                    [
-                        // {
-                        //     loader: MiniCssExtractPlugin.loader,
-                        //     options: {
-                        //         hmr: true,
-                        //         reloadAll: true
-                        //     }
-                        //     },
-                    {
-                      loader: `style-loader`
-                    },
-                    {
-                      loader: `css-loader`
-                    },
-                    {
-                      loader: `sass-loader`
+                use: [{
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                        hmr: true,
+                        reloadAll: true
                     }
-                ]
+                }, {
+                    loader: 'css-loader',
+                    options: {
+                        url: true,
+                        modules: true,
+                        localIdentName: '[local]___[hash:base64:5]'
+                    }
+                }, {
+                    loader: 'sass-loader',
+                    options: {
+                        modules: true,
+                        hashPrefix: `web${Date.now()}`
+                    }
+                }]
             }
         ]
     },

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {debounce} from 'lodash';
 
-import './Input.sass';
+import styles from './Input.sass';
 
 class Input extends React.Component {
     constructor(props) {
@@ -12,6 +12,7 @@ class Input extends React.Component {
             value: props.value,
         };
 
+        this.onChangeDebounced = debounce(this.props.onChange);
         this.onChange = this.onChange.bind(this);
         this.onKeyPress = this.onKeyPress.bind(this);
     }
@@ -25,6 +26,7 @@ class Input extends React.Component {
 
     onChange(e) {
         this.setState({value: e.target.value});
+        this.onChangeDebounced(e.target.value);
     }
 
     render() {

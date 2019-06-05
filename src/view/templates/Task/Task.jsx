@@ -34,6 +34,7 @@ class Task extends React.Component {
 
     render() {
         // console.log(this.state);
+        console.log(styles.task_text);
         const value = this.state.value;
         const status = this.state.status;
         return (
