@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var devFlagPlugin = new webpack.DefinePlugin({
   __DEV__: JSON.stringify(JSON.parse(process.env.DEBUG || 'false'))
@@ -23,7 +24,15 @@ module.exports = {
             },
             {
                 test: /\.(scss|sass)$/,
-                use: [
+                use:
+                    [
+                        // {
+                        //     loader: MiniCssExtractPlugin.loader,
+                        //     options: {
+                        //         hmr: true,
+                        //         reloadAll: true
+                        //     }
+                        //     },
                     {
                       loader: `style-loader`
                     },
@@ -33,7 +42,7 @@ module.exports = {
                     {
                       loader: `sass-loader`
                     }
-                ]  
+                ]
             }
         ]
     },
