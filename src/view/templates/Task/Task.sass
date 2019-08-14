@@ -4,19 +4,18 @@
   cursor: pointer
   transition-duration: 0.3s
   transition-timing-function: ease-out
+  padding: 10px
 
+  &_text
+    flex: 5
+    flex-wrap: wrap
+    display: flex
+    margin: 0 10px
+    cursor: pointer
+    transition-duration: 0.3s
+    transition-timing-function: ease-out
+    align-items: center
 
-.task_text
-  flex: 5
-  flex-wrap: wrap
-  display: flex
-  margin: 0 10px
-  cursor: pointer
-  transition-duration: 0.3s
-  transition-timing-function: ease-out
-
-
-.element
   &_remove
     flex: 1
     justify-content: center
@@ -28,36 +27,38 @@
     display: flex
     transition-duration: 0.5s
     cursor: pointer
-
+    margin-right: 25px
     &:hover
       border-radius: 10px
       background: #FF0C0C
       color: white
 
-
-
-.element_fulfilled
-  width: 25px
-  height: 25px
-  font-size: 23px
-  justify-content: center
-  line-height: 25px
-  color: green
-  border: 2px solid green
-
-  &:hover
-    background: green
-    color: white
-
-  &-active
-    background: green
-    color: white
+  &_fulfilled
     width: 25px
     height: 25px
     font-size: 23px
     justify-content: center
     line-height: 25px
-    margin-right: 10px
-    cursor: pointer
+    color: green
     border: 2px solid green
+    text-align: center
+    &:hover
+      background: green
+      color: white
+
+    &__active
+      background: green
+      color: white
+      width: 25px
+      height: 25px
+      font-size: 23px
+      justify-content: center
+      line-height: 25px
+      text-align: center
+      cursor: pointer
+      border: 2px solid green
+
+
+.task+.task
+  border-top: 1px solid rgba(0,0,0,0.5)
 
